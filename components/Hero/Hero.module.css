@@ -1,0 +1,145 @@
+.hero {
+  position: relative;
+  /* Altura exata travada para o desktop */
+  height: calc(100vh - 128px);
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  background: var(--verde-900);
+  overflow: hidden;
+}
+
+.midiaFundo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+      rgba(14, 42, 34, 0.95) 0%,
+      rgba(14, 42, 34, 0.8) 10%,
+      rgba(14, 42, 34, 0.2) 300%);
+}
+
+.conteudo {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  width: 100%;
+  margin-right: auto;
+  /* Alinha perfeitamente com a logo */
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dourado-400);
+  margin-bottom: 12px;
+}
+
+.titulo {
+  color: var(--branco);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.destaque {
+  color: var(--dourado-400);
+}
+
+.subtitulo {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16.5px;
+  line-height: 1.45;
+  max-width: 500px;
+  margin-bottom: 24px;
+}
+
+/* O seletor duplo (.cta.cta) garante prioridade total sobre links globais */
+.cta.cta,
+.cta.cta:visited,
+.cta.cta:hover,
+.cta.cta:active {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--dourado-400);
+  color: var(--verde-900);
+  -webkit-text-fill-color: var(--verde-900);
+  /* Impede o iOS/Android de forçar texto branco no Dark Mode */
+}
+
+@media (max-width: 768px) {
+  .hero {
+    /* 100dvh segura o enquadramento dinâmico no mobile */
+    height: calc(100dvh - 114px);
+    min-height: 480px;
+    display: flex;
+    align-items: flex-end;
+    /* Rebaixa o texto em direção à base */
+  }
+
+  .conteudo {
+    padding-top: 0;
+    padding-bottom: 32px;
+    /* Margem da base para o botão */
+  }
+
+  /* No desktop o texto fica à esquerda, então o overlay escurece da
+     esquerda pra direita. No celular o texto vai pra base (flex-end),
+     então o overlay precisa escurecer de baixo pra cima — senão sobra
+     aquela faixa verde solta em cima do vídeo, sem relação com o texto. */
+  .overlay {
+    background: linear-gradient(to top,
+        rgba(14, 42, 34, 0.92) 0%,
+        rgba(14, 42, 34, 0.55) 40%,
+        rgba(14, 42, 34, 0.05) 500%);
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  .titulo {
+    font-size: clamp(26px, 7vw, 36px);
+    margin-bottom: 12px;
+  }
+
+  .subtitulo {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  .cta.cta,
+  .cta.cta:visited {
+    color: var(--verde-900);
+    -webkit-text-fill-color: var(--verde-900);
+    padding: 14px 20px;
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+  }
+}

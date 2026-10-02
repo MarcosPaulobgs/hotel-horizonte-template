@@ -1,0 +1,204 @@
+.secao {
+  background: var(--verde-900);
+  padding: var(--espaco-secao) 24px;
+}
+
+.container {
+  display: block;
+}
+
+.intro {
+  max-width: 620px;
+  margin-bottom: 40px;
+}
+
+.titulo {
+  color: var(--branco);
+  font-size: clamp(28px, 3.2vw, 36px);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.subtitulo {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.form {
+  background: var(--branco);
+  border-radius: var(--raio-lg);
+  padding: 36px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.linha2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.campo label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--texto-900);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  font-family: var(--font-corpo);
+  font-size: 16px; /* 16px no mobile impede o zoom automático do iOS (iPhone) */
+  padding: 13px 14px; /* Aumentado levemente para melhorar a área de toque */
+  min-height: 48px; /* Garantia de touch-target WCAG */
+  border-radius: var(--raio);
+  border: 1px solid var(--linha);
+  background: var(--creme-100);
+  color: var(--texto-900);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Estilo para quando o campo tem erro (acessibilidade visual) */
+.campo input[aria-invalid="true"] {
+  border-color: #b23b3b;
+  background: #fdf5f5;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--dourado-500);
+  background: var(--branco);
+  box-shadow: 0 0 0 2px rgba(var(--dourado-500-rgb), 0.2); /* Ajuda na acessibilidade do foco */
+}
+
+.campo textarea {
+  resize: vertical;
+  font-family: var(--font-corpo);
+  min-height: 80px;
+}
+
+.erro {
+  font-size: 12.5px;
+  color: #b23b3b;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.acoes {
+  display: flex;
+  gap: 14px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.botaoWhats {
+  flex: 1;
+  min-width: 240px;
+  padding: 15px 24px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.botaoEmail {
+  border: 1px solid var(--verde-800);
+  color: var(--verde-800);
+  background: transparent;
+  padding: 15px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.botaoEmail:hover {
+  background: var(--sage-100);
+}
+
+/* Encolhida no desktop, para o formulário caber melhor na tela inteira */
+@media (min-width: 701px) {
+  .secao {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .intro {
+    margin-bottom: 22px;
+  }
+
+  .form {
+    padding: 26px 32px;
+    gap: 14px;
+  }
+
+  .linha2 {
+    gap: 16px;
+  }
+
+  .campo {
+    gap: 5px;
+  }
+
+  .campo input,
+  .campo select,
+  .campo textarea {
+    padding: 9px 14px;
+    min-height: 42px;
+  }
+
+  .campo textarea {
+    min-height: 56px;
+  }
+
+  .acoes {
+    margin-top: 4px;
+  }
+
+  .botaoWhats,
+  .botaoEmail {
+    padding: 11px 24px;
+    min-height: 44px;
+  }
+}
+
+/* Responsividade agressiva para celulares */
+@media (max-width: 700px) {
+  .form {
+    padding: 24px 20px;
+    gap: 24px; /* Mais espaço entre os campos no celular */
+  }
+
+  .linha2 {
+    grid-template-columns: 1fr; /* Quebra as duas colunas para uma */
+    gap: 24px;
+  }
+
+  .acoes {
+    flex-direction: column; /* Força os botões a ficarem um em cima do outro */
+    gap: 12px;
+  }
+
+  .botaoWhats,
+  .botaoEmail {
+    width: 100%; /* Botões ocupam 100% da tela para facilitar o clique */
+    min-width: 100%;
+  }
+}

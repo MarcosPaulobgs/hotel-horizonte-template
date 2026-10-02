@@ -1,0 +1,190 @@
+.secao {
+  background: var(--sage-100);
+  padding: var(--espaco-secao) 24px;
+}
+
+/* Aumenta o contraste da tag superior */
+.secao :global(.eyebrow) {
+  color: var(--dourado-600, #96670e);
+}
+
+.titulo {
+  font-size: clamp(28px, 3.2vw, 36px);
+  max-width: 560px;
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+
+/* ===== Destaques (bento: 1 card grande + 1 menor) ===== */
+
+.destaques {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.cardDestaque {
+  position: relative;
+  border-radius: var(--raio-lg);
+  overflow: hidden;
+  min-height: 340px;
+  display: flex;
+}
+
+.imagemFundo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cardDestaque:hover .imagemFundo,
+.cardDestaque:focus-within .imagemFundo {
+  transform: scale(1.05);
+}
+
+/* Película escura para contraste do texto (garante aprovação no WCAG) */
+.pelicula {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 42, 34, 0.35) 0%,
+    rgba(14, 42, 34, 0.88) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.conteudoDestaque {
+  position: relative;
+  z-index: 2;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.icone {
+  color: var(--dourado-400);
+  margin-bottom: 14px;
+}
+
+.cardTitulo {
+  font-size: 20px;
+  color: var(--branco);
+  margin-bottom: 8px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.cardTexto {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  max-width: 320px;
+}
+
+/* ===== Checklist compacto (sem foto, direto no fundo sage) ===== */
+
+.listaCompacta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.itemCompacto {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.iconeCompacto {
+  color: var(--dourado-500);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.tituloCompacto {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texto-900);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.textoCompacto {
+  font-size: 13.5px;
+  color: var(--texto-600);
+  line-height: 1.5;
+}
+
+/* ===== Ajustes Finos para Desktop ===== */
+@media (min-width: 901px) {
+  .itemCompacto {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .iconeCompacto {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+  }
+
+  .tituloCompacto {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .textoCompacto {
+    font-size: 14px;
+    text-align: center;
+    max-width: 220px; /* Evita frases muito longas esticadas numa linha só */
+  }
+}
+
+/* ===== Responsivo Mobile ===== */
+
+@media (max-width: 900px) {
+  .destaques {
+    grid-template-columns: 1fr;
+  }
+
+  .cardDestaque {
+    min-height: 260px;
+  }
+
+  .listaCompacta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .secao {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .destaques {
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+
+  .conteudoDestaque {
+    padding: 22px 20px;
+  }
+
+  .listaCompacta {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

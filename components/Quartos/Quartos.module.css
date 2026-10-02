@@ -1,0 +1,88 @@
+.secao {
+  padding: var(--espaco-secao) 24px;
+}
+
+.titulo {
+  font-size: clamp(28px, 3.2vw, 36px);
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: var(--branco);
+  border-radius: var(--raio-lg);
+  overflow: hidden;
+  border: 1px solid var(--linha);
+  display: flex;
+  flex-direction: column;
+}
+
+.card > :global(div) {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--linha);
+}
+
+.corpo {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.nome {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.descricao {
+  font-size: 13.5px;
+  color: var(--texto-600);
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.preco {
+  font-size: 13.5px;
+  color: var(--texto-600);
+  margin-bottom: 16px;
+}
+
+.preco strong {
+  color: var(--verde-800);
+  font-size: 16px;
+}
+
+.botao {
+  border: 1px solid var(--verde-800);
+  color: var(--verde-800);
+  background: transparent;
+  padding: 11px;
+  font-size: 13.5px;
+  border-radius: 999px;
+  text-align: center;
+}
+
+.botao:hover {
+  background: var(--verde-900);
+  color: var(--branco);
+}
+
+
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

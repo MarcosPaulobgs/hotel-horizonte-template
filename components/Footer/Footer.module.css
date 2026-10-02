@@ -1,0 +1,208 @@
+.footer {
+  background: var(--verde-900);
+  padding-top: 56px;
+  color: var(--branco);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 1.2fr 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+}
+
+.colunaPrincipal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.logoWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+  border-radius: var(--raio); 
+  -webkit-tap-highlight-color: transparent; /* Remove o azul no clique no celular */
+}
+
+.logoWrapper:focus-visible {
+  outline: 2px solid var(--dourado-400);
+  outline-offset: 4px;
+}
+
+.logoIcone {
+  height: 50px;
+  width: auto;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2; 
+}
+
+.logoTexto {
+  height: 70px;
+  width: auto;
+  margin-left: -45px; 
+  position: relative;
+  z-index: 1;
+}
+
+.descricao {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+.coluna {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tituloColuna {
+  color: var(--dourado-400);
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 2px; 
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  padding: 6px 0; 
+  display: inline-flex;
+  align-items: center;
+  
+  /* CORREÇÕES APLICADAS AQUI: */
+  width: fit-content; /* Impede o link de ocupar 100% da largura, arrumando o clique fantasma */
+  -webkit-tap-highlight-color: transparent; /* Remove o azul no clique no celular */
+}
+
+.link:hover {
+  color: var(--dourado-400);
+}
+
+.link:focus-visible,
+.linha:focus-visible {
+  outline: 2px solid var(--dourado-400);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.linha, 
+.linhaItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 6px 0;
+  
+  /* CORREÇÕES APLICADAS AQUI: */
+  width: fit-content; /* Impede de ocupar toda a coluna */
+  -webkit-tap-highlight-color: transparent; /* Remove o azul no clique no celular */
+}
+
+a.linha {
+  transition: color 0.2s ease;
+}
+
+a.linha:hover {
+  color: var(--dourado-400);
+}
+
+.linha svg,
+.linhaItem svg {
+  color: var(--dourado-400);
+  flex-shrink: 0;
+}
+
+.baixo {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+}
+
+.baixoConteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.baixo p {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer {
+    padding-top: 40px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-bottom: 32px;
+  }
+
+  .colunaPrincipal {
+    align-items: center;
+    text-align: center;
+  }
+
+  .logoIcone {
+    height: 50px;
+    width: auto;
+  }
+
+  .logoTexto {
+    height: 75px;
+    width: auto;
+    margin-left: -50px;
+    top: 3px;
+  }
+
+  .descricao {
+    max-width: none;
+  }
+
+  .link, 
+  .linha,
+  .linhaItem {
+    padding: 10px 0; 
+  }
+  
+  .coluna {
+    gap: 4px;
+    /* Centraliza os links caso você prefira no mobile, já que agora eles não ocupam 100% da largura: */
+    /* align-items: center; */ /* Opcional: descomente se quiser os links do footer centralizados no celular */
+  }
+  
+  .tituloColuna {
+    margin-bottom: 6px;
+  }
+
+  .baixoConteudo {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}

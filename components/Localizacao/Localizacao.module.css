@@ -1,0 +1,47 @@
+.secao {
+  padding: var(--espaco-secao) 24px;
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.titulo {
+  font-size: clamp(28px, 3.2vw, 36px);
+  margin-bottom: 20px;
+}
+
+.paragrafo {
+  color: var(--texto-600);
+  font-size: 15.5px;
+  margin-bottom: 24px;
+  max-width: 440px;
+}
+
+.endereco {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--texto-900);
+}
+
+.endereco svg {
+  color: var(--dourado-500);
+  flex-shrink: 0;
+}
+
+.iframe {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 0;
+  border-radius: var(--raio);
+}
+
+@media (max-width: 860px) {
+  .secao {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

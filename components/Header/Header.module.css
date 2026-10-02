@@ -1,0 +1,96 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--verde-900);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: 76px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logoIcone {
+  height: 50px;
+  width: auto;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2; /* fica por cima do texto */
+}
+
+.logoTexto {
+  height: 70px;
+  width: auto;
+  margin-left: -45px; /* quanto mais negativo, mais o texto "entra" por baixo do ícone */
+  position: relative;
+  z-index: 1;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex: 1;
+  justify-content: center;
+}
+
+.link {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.82);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+/* Hover alterado para tom amarelo/dourado */
+.link:hover {
+  color: var(--dourado-400);
+}
+
+/*
+  Especificidade aumentada encadeando '.linha .cta' para garantir
+  a cor verde no texto sem necessidade de !important
+*/
+.linha .cta {
+  flex-shrink: 0;
+  padding: 11px 20px;
+  font-size: 14px;
+  color: var(--verde-900);
+}
+
+@media (max-width: 900px) {
+  .nav {
+    display: none;
+
+  }
+
+  @media (max-width: 728px) {
+    .linha {
+      height: 64px;
+      gap: 12px;
+    }
+
+    .logoIcone {
+      height: 50px;
+      width: auto;
+      
+    }
+
+    .logoTexto {
+      height: 75px;
+      width: auto;
+      margin-left: -50px;
+      top: 3px
+    }
+  }
+}

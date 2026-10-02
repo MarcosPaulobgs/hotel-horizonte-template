@@ -1,0 +1,167 @@
+:root {
+  /* "only" é mais forte que "light": proíbe o navegador de aplicar
+     escurecimento automático por cima do site, mesmo com o sistema/app
+     em modo escuro (é isso que estava invertendo as cores no celular) */
+  color-scheme: only light;
+
+  /* Cores de marca */
+  --verde-900: #0e2a22;
+  --verde-800: #123529;
+  --verde-700: #1a4536;
+  --dourado-500: #c99a4b;
+  --dourado-400: #d9ac63;
+  --dourado-100: #f1e2c4;
+
+  /* Neutros */
+  --creme-100: #faf7f0;
+  --creme-200: #f2efe6;
+  --sage-100: #eef2ec;
+  --branco: #ffffff;
+  --texto-900: #1c2620;
+  --texto-600: #4a564e;
+  --texto-400: #8a9389;
+  --linha: #dfe3da;
+
+  /* Tipografia */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-corpo: var(--font-inter), -apple-system, sans-serif;
+
+  /* Layout */
+  --largura-max: 1180px;
+  --raio: 4px;
+  --raio-lg: 10px;
+  --sombra-card: 0 1px 2px rgba(14, 42, 34, 0.06);
+
+  /* Espaçamento vertical de seção */
+  --espaco-secao: clamp(56px, 8vw, 104px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+
+}
+
+body {
+  margin: 0;
+  background: var(--creme-100);
+  color: var(--texto-900);
+  font-family: var(--font-corpo);
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  /* Rolagem por inércia (momentum) no iOS/Android — evita a sensação de
+     "travadinha"/engasgo ao deslizar a página no celular */
+  -webkit-overflow-scrolling: touch;
+}
+
+* {
+  box-sizing: border-box;
+  max-width: 100vw;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--texto-900);
+}
+
+p {
+  margin: 0;
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-corpo);
+  cursor: pointer;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--dourado-500);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover {
+  opacity: 0.92;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--dourado-500);
+  outline-offset: 2px;
+}
+
+.btnPrimario,
+.btnPrimario:visited,
+.btnPrimario:hover,
+.btnPrimario:active {
+  background-color: var(--dourado-400);
+  color: var(--verde-900) !important;
+  -webkit-text-fill-color: var(--verde-900) !important;
+}
+
+.btnContorno {
+  background: transparent;
+  color: var(--branco);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Regras globais de sobreposição para links e botões do Hero e Header */
+a[class*="cta"],
+a[class*="cta"]:visited,
+a[class*="cta"]:hover,
+a[class*="cta"]:active {
+  color: var(--verde-900) !important;
+  -webkit-text-fill-color: var(--verde-900) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
